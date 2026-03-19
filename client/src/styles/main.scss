@@ -1,16 +1,15 @@
-// 1. Abstracts (variables, mixins reutilizables)
-@use "abstracts/variables";
+// Variables globales (solo para Bootstrap)
+@use "abstracts/variables" as *;
+
+// Mixins (no generan CSS)
 @use "abstracts/mixins";
 
-// 2. Base - 
+// Código Modular
 @use "base/typography";
 @use "base/base";
-
-// 3. Layout - Header, Footer, Grid,..
 @use "layout/layout"; 
-
-// 4. Components - Buttons, Modals, Cards,..
 @use "components/components";
-
-// 5. Pages
 @use "pages/home";
+
+// Importar Bootstrap (Se pone al final ya que genera css)
+@import "../../node_modules/bootstrap/scss/bootstrap"; 
