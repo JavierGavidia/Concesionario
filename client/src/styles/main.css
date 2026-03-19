@@ -1,0 +1,159 @@
+/* FUENTE PRIMARY */
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/primary-font/inter-v20-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../../assets/fonts/primary-font/inter-v20-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/primary-font/inter-v20-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/secondary-font/playfair-display-v40-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../../assets/fonts/secondary-font/playfair-display-v40-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/secondary-font/playfair-display-v40-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 700;
+  color: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #212529;
+  color: white;
+  padding: 1rem;
+}
+.header .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.footer {
+  background-color: #212529;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-custom {
+  background-color: #3769b4;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-custom:hover {
+  opacity: 0.9;
+}
+
+.card-car {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.card-car .title-card {
+  margin-bottom: 0.5rem;
+}
+
+.hero {
+  background: url("https://picsum.photos/1200/400") center/cover no-repeat;
+  height: 300px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+.cars {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}/*# sourceMappingURL=main.css.map */

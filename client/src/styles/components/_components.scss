@@ -1,0 +1,27 @@
+// Cards, Buttons, Modals
+
+@use "../abstracts/variables" as v;
+
+// Botón Base reutilizable
+.btn-custom {
+    background-color: v.$primary-color;
+    color: white;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: v.$border-radius;
+    cursor: pointer;
+    &:hover{
+        opacity: .9;
+    }
+}
+
+// Card de coche
+.card-car {
+    background: white;
+    border-radius: v.$border-radius;
+    padding: v.$spacing;
+    box-shadow: 0 2px 8px rgba(#000000, .2);
+    .title-card{
+        margin-bottom: .5rem;
+    }
+}

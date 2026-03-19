@@ -1,0 +1,20 @@
+@use "../abstracts/variables" as v;
+
+// Rest básico + estilos globales
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    color: v.$text-color;
+    background-color: v.$bg-light;
+}
+
+#root{
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}

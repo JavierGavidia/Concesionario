@@ -1,0 +1,30 @@
+// Páginas
+
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+// HERO (Parte superior)
+.hero{
+    background: url("https://picsum.photos/1200/400") center/cover no-repeat;
+    height: 300px;
+    color: white;
+
+    @include m.flex-center;
+    text-align: center;
+
+    h1{
+        font-size: 2.5rem;
+        background: rgba(#000000, .5);
+        padding: 1rem;
+    }
+}
+
+// LISTADO DE COCHES
+.cars {
+    @include m.container;
+    margin-top: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
