@@ -1,0 +1,52 @@
+.price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+
+    span {
+
+        &.old-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        &.new-price {
+            color: red;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        &.discount {
+            background: red;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-size: .8rem;
+        }
+
+        &.normal-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    }
+}
+
+// Icono
+.estrella-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+
+    color: gold;
+    font-size: 20px;
+    background: black;
+    padding: 6px;
+    border-radius: 50%;
+
+    // optimización clave
+    will-change: transform;
+
+    // animation: starPop 0.5s ease-out;
+}

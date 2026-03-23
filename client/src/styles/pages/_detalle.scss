@@ -1,0 +1,106 @@
+.coche-detalle {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .coche-detalle {
+        grid-template-columns: 1fr; // una sola columna
+    }
+}
+
+.coche-detalle__img {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .imagen-principal {
+        width: 100%;
+        height: auto;
+        position: relative;
+        cursor: default;
+        transition: transform 0.2s;
+
+        img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        &:hover{
+            .estrella-icon{
+                animation: starFloat 2.5s ease-in-out infinite;
+            }   
+        }
+    }
+
+    .carousel-miniaturas{
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        overflow-x: auto; // permite scroll horizontal
+        padding-bottom: 5px; // Espacio para el scroll
+        scrollbar-width: thin; // Firefox
+        scrollbar-color: #888 transparent; // Firefox
+        -webkit-overflow-scrolling: touch; // smooth scroll en móvil
+        border-radius: 5px;
+
+        // Opcional: estilos para scrollbar en Chrome/Safari
+        &::-webkit-scrollbar {
+            height: 6px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 5px;
+        }
+
+        .miniatura{
+            flex: 0 0 auto; // Evita que se reduzcan
+            width: 170px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 5px;
+            
+            cursor: pointer;
+            transition: transform 0.2s;
+
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+    }
+
+}
+
+.coche-detalle__info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 900;
+    }
+
+    .detalle-extra{
+        height: auto;
+        p{
+            margin-bottom: .5rem;
+        }
+    }
+}
+
+.coche-detalle__img,
+.coche-detalle__info {
+    width: 100%; // opcional, pero consistente
+    min-width: 0;
+}

@@ -4,12 +4,18 @@
 // Mixins (no generan CSS)
 @use "abstracts/mixins";
 
+// Aimaciones globales
+@use "abstracts/animations";
+
 // Código Modular
 @use "base/typography";
 @use "base/base";
 @use "layout/layout"; 
 @use "components/components";
+@use "components/price";
 @use "pages/home";
+@use "pages/coches";
+@use "pages/detalle";
 
 // Importar Bootstrap (Se pone al final ya que genera css)
-@import "../../node_modules/bootstrap/scss/bootstrap"; 
+@import "../../node_modules/bootstrap/scss/bootstrap";

@@ -1,0 +1,36 @@
+/* ANIMACIONES GLOBALES */
+
+// Animación de entrada (pop)
+@keyframes starPop {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Animación suave (latido/brillo)
+@keyframes starPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  }
+}
+
+// Animación suave tipo "flotante"
+@keyframes starFloat {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-3px);
+  }
+}
