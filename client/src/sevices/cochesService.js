@@ -23,7 +23,8 @@ export const getCoches = async () => {
             matricula: "1234-ABC",
             cilindrada: "1998 cc",
             potencia: "190 CV",
-            km: "45.000 km"
+            km: "45.000 km",
+            info: "El BMW Serie 3 Berlina aúna sensaciones de conducción dinámicas con un interior moderno. Las tecnologías innovadoras y los sistemas inteligentes de asistencia al conductor hacen que conducir sea una experiencia inolvidable. En su exterior, el BMW Serie 3 Berlina se presenta deportivo y elegante. El interior de ha actualizado para ofrecer el máximo confort y un manejo intuitivo. Descubre toda la gama del BMW Serie 3 Berlina, sus opciones de equipamiento, los datos técnicos y las distintas opciones de financiación y renting."
         },
         {
             id: 2,
@@ -44,7 +45,8 @@ export const getCoches = async () => {
             matricula: "5678-DEF",
             cilindrada: "1968 cc",
             potencia: "150 CV",
-            km: "60.000 km"
+            km: "60.000 km",
+            info: "Este es el texto de información del coche."
         },
         {
             id: 3,
@@ -66,7 +68,8 @@ export const getCoches = async () => {
             matricula: "9012-GHI",
             cilindrada: "2143 cc",
             potencia: "170 CV",
-            km: "30.000 km"
+            km: "30.000 km",
+            info: "Este es el texto de información del coche."
         },
         {
             id: 4,
@@ -87,7 +90,8 @@ export const getCoches = async () => {
             matricula: "3456-JKL",
             cilindrada: "1999 cc",
             potencia: "140 CV",
-            km: "80.000 km"
+            km: "80.000 km",
+            info: "Este es el texto de información del coche."
         },
         {
             id: 5,
@@ -108,7 +112,8 @@ export const getCoches = async () => {
             matricula: "7890-MNO",
             cilindrada: "1333 cc",
             potencia: "160 CV",
-            km: "10.000 km"
+            km: "10.000 km",
+            info: "Este es el texto de información del coche."
         }
     ];
 };

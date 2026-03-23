@@ -4,6 +4,8 @@ import { getCoches } from "../../sevices/cochesService";
 
 import Price from "../../components/ui/Price";
 
+import BackButton from "../../components/ui/BackButton";
+
 function CocheDetallePage() {
     const { id } = useParams(); // Obtenemos el id de la URL
     const [coche, setCoche] = useState(null);
@@ -11,7 +13,19 @@ function CocheDetallePage() {
     // Estado para la imágen principal
     const [imagenPrincipal, setImagenPrincipal] = useState("");
 
+    // Animación al cambiar de imagen principal
+    const [isFading, setIsFading] = useState(false);
 
+    const cambiarImagen = (img) => {
+        //Activamos fade out
+        setIsFading(true);
+
+        // Esperamos a que termine fade
+        setTimeout(() => {
+            setImagenPrincipal(img);
+            setIsFading(false); // fade in
+        }, 200);
+    };
 
     useEffect(() => {
         const cargarCoche = async () => {
@@ -37,56 +51,72 @@ function CocheDetallePage() {
     if (!coche) return <p>Cargando coche...</p>
 
     // Filtramos la imagen principal para que no aparezca en el carousel
-    const miniaturas = coche.imagenes.filter(img => img !== imagenPrincipal);
+    // const miniaturas = coche.imagenes.filter(img => img !== imagenPrincipal);
+
+    // Aparecen todas las miniaturas
+    const miniaturas = coche.imagenes;
 
     return (
-        <div className="coche-detalle">
+        <>
+            <div className="coche-detalle">
 
-            <div className="coche-detalle__img">
-                {/* Imagen principal */}
-                <div className="imagen-principal">
-                    {/* Icono si hay oferta */}
-                    {coche.oferta && (
-                        <i className="fa-solid fa-star estrella-icon"></i>
-                    )}
+                <div className="coche-detalle__img">
+                    {/* Imagen principal */}
+                    <div className="imagen-principal">
+                        {/* Icono si hay oferta */}
+                        {coche.oferta && (
+                            <i className="fa-solid fa-star estrella-icon"></i>
+                        )}
 
-                    <img src={imagenPrincipal} alt={`Imagen del ${coche.marca} ${coche.modelo}`} />
-                </div>
-
-                {/* Carrousel de miniaturas */}
-                <div className="carousel-miniaturas">
-                    {miniaturas.map((img, index) => (
                         <img
-                            key={index}
-                            src={img}
-                            alt={`Imagen ${coche.marca} ${coche.modelo} ${index + 1}`}
-                            className="miniatura"
-                            onClick={() => setImagenPrincipal(img)} // Al clicar la onemos como principal
+                            src={imagenPrincipal}
+                            alt={`Imagen del ${coche.marca} ${coche.modelo}`}
+                            // className={`img-fluid ${isFading ? "fade-out" : "fade-in"}`}
+                            className={isFading ? "fade-out" : "fade-in"}
                         />
-                    ))}
+                    </div>
+
+                    {/*  */}
+
+                    {/* Carrousel de miniaturas */}
+                    <div className="carousel-miniaturas">
+                        {miniaturas.map((img, index) => (
+                            <img
+                                key={index}
+                                src={img}
+                                alt={`Imagen ${coche.marca} ${coche.modelo} ${index + 1}`}
+                                className={`miniatura ${img === imagenPrincipal ? "active" : ""}`}
+                                onClick={() => cambiarImagen(img)} // Al clicar la ponemos como principal
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                <div className="coche-detalle__info">
+
+                    <BackButton className="mb-3 btn-back" />
+
+                    <h1>{coche.marca} {coche.modelo}</h1>
+
+                    <Price coche={coche}></Price>
+
+                    <div className="detalle-extra">
+                        <p>Matrícula: <strong>{coche.matricula}</strong></p>
+                        <p>Cilindrada: <strong>{coche.cilindrada}</strong></p>
+                        <p>Potencia: <strong>{coche.potencia}</strong></p>
+                        <p>Kilometros: <strong>{coche.km}</strong></p>
+                    </div>
+
+                    <div className="">
+                        <span><strong>Información:</strong></span>
+                        <p className="info-txt">{coche.info}</p>
+                    </div>
+                    <button className="btn btn-primary mt-auto">
+                        Contactar
+                    </button>
                 </div>
             </div>
-
-            <div className="coche-detalle__info">
-                <h1>{coche.marca} {coche.modelo}</h1>
-
-                <Price coche={coche}></Price>
-
-                <div className="detalle-extra">
-                    <p>Matrícula: <strong>{coche.matricula}</strong></p>
-                    <p>Cilindrada: <strong>{coche.cilindrada}</strong></p>
-                    <p>Potencia: <strong>{coche.potencia}</strong></p>
-                    <p>Kilometros: <strong>{coche.km}</strong></p>
-                </div>
-
-                <button className="btn btn-primary mt-auto">
-                    Contactar
-                </button>
-            </div>
-
-
-
-        </div>
+        </>
     );
 }
 
