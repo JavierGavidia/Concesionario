@@ -2,12 +2,20 @@ import { useEffect, useState } from "react";
 import { getCoches } from "../../sevices/cochesService";
 import CocheCard from "../../components/coches/CocheCard";
 
+import { useSearchParams } from "react-router-dom";
+
+
+
 // Página completa de Listado de coches
 function CochesPage() {
     // Estado para almacenar coches
     const [coches, setCoches] = useState([]);
 
-    const [marca, setMarca] = useState(""); // Estado del filtro
+    //const [marca, setMarca] = useState(""); // Estado del filtro no guarda el historial ya que rompe la URL
+
+    const [searchParams, setSearchParams] = useSearchParams(); // Leer query params en React
+
+    const marca = searchParams.get("marca") || "";
 
     // Cargar datos al montar
     useEffect(() => {
@@ -32,7 +40,16 @@ function CochesPage() {
                     <p>Total coches: {coches.length}</p> {/* DEBUG */}
                 </div>
                 <div className="cont-search">
-                    <select name="marca" id="marca" onChange={(e) => setMarca(e.target.value)}>
+                    <span className="me-2">Filtrar por marca:</span>
+                    <select value={marca} name="marca" id="marca" onChange={(e) => {
+                        const value = e.target.value;
+
+                        if(value){
+                            setSearchParams({marca: value}); // Actualiza la URL
+                        } else {
+                            setSearchParams({}); // Sin filtros
+                        }
+                    }}>
                         <option value="">Todas</option>
                         <option value="BMW">BMW</option>
                         <option value="Audi">Audi</option>
