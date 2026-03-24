@@ -277,6 +277,11 @@ body {
   }
 }
 
+.cont-sup {
+  display: flex;
+  justify-content: space-between;
+}
+
 .coche-detalle {
   width: 100%;
   display: grid;

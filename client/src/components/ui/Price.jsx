@@ -18,7 +18,7 @@ function Price({ coche }) {
                 <>
                     {/* Precio original tachado */}
                     <span className="old-price">
-                        {coche.precio.toLocaleString("es-ES", {style: "currency", currency: "EUR"})}
+                        {(coche.precio).toLocaleString("es-ES", {style:"currency", currency:"EUR"})}
                     </span>
 
                     {/* Precio con descuento */}
@@ -35,7 +35,7 @@ function Price({ coche }) {
                 // Si no tenemos oferta
                 <>
                     <span className="normal-price">
-                        {coche.precio.toLocaleString("es-Es", {style: "currency", currency:"EUR"})}
+                        {(coche.precio).toLocaleString("es-Es", {style:"currency", currency:"EUR"})}
                     </span>
                 </>
             )}

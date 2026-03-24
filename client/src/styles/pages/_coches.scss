@@ -18,3 +18,8 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+.cont-sup{
+    display: flex;
+    justify-content: space-between;
+}
