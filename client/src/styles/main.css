@@ -281,6 +281,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.cont-sup .cont-search .filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
 
 .coche-detalle {
   width: 100%;
