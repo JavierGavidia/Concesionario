@@ -17,19 +17,22 @@ function CochesPage() {
 
     const marca = searchParams.get("marca") || "";
 
+    // Leemos si existe el filtro oferta en la URL
+    const oferta = searchParams.get("oferta") === "true";
+
     // Cargar datos al montar
     useEffect(() => {
 
         console.log("Cargando coches...")
 
         const cargarCoches = async () => {
-            const data =  await getCoches(marca);
+            const data =  await getCoches(marca, oferta);
             console.log("Datos: ", data);
             setCoches(data);
         };
 
         cargarCoches();
-    }, [marca]); // Se ejecuata cuanmdo cambia la marca
+    }, [marca, oferta]); // Se ejecuata cuanmdo cambia la marca o clicamos en oferta
 
     return (
         <div>
@@ -40,16 +43,42 @@ function CochesPage() {
                     <p>Total coches: {coches.length}</p> {/* DEBUG */}
                 </div>
                 <div className="cont-search">
-                    <span className="me-2">Filtrar por marca:</span>
-                    <select value={marca} name="marca" id="marca" onChange={(e) => {
-                        const value = e.target.value;
 
-                        if(value){
-                            setSearchParams({marca: value}); // Actualiza la URL
-                        } else {
-                            setSearchParams({}); // Sin filtros
-                        }
-                    }}>
+                    <label htmlFor="" className="me-5">
+                        <span className="me-2">Solo ofertas</span>
+                        <input 
+                        type="checkbox" 
+                        checked={oferta}
+                        onChange={(e) => {
+                            // Clonamos los params actuales - IMPORTANTE
+                            const newParams = new URLSearchParams(searchParams);
+
+                            if (e.target.checked){
+                                newParams.set("oferta", "true"); // Añadimos
+                            } else {
+                                newParams.delete("oferta"); // Eliminamos
+                            }
+                            setSearchParams(newParams);
+                        }}
+                        />
+                    </label>
+
+                    <span className="me-2">Filtrar por marca:</span>
+                    <select value={marca} name="marca" id="marca" 
+                        onChange={(e) => {
+                            const value = e.target.value;
+
+                            // Clonamos los parametros actuales para no perder lo que tenemos
+                            const newParams = new URLSearchParams(searchParams);
+
+                            if(value){
+                                newParams.set("marca", value); // Añadimos o modificamos marca
+                            } else {
+                                newParams.delete("marca"); // Quitamos marca
+                            }
+
+                            setSearchParams(newParams); // Mantenemos oferta intacto, tal como la tenga el usuario
+                        }}>
                         <option value="">Todas</option>
                         <option value="BMW">BMW</option>
                         <option value="Audi">Audi</option>

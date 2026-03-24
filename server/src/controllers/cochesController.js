@@ -8,21 +8,30 @@ import { db } from "../../db.js";
 export const getCoches = async (req, res) => {
     try {
 
-        const { marca } = req.query; // obtenemos query params
+        const { marca, oferta } = req.query; // obtenemos query params
 
-        console.log("🔥 Marca recibida en backend:", marca); // 👈 DEBUG
-
-        let query = "SELECT * FROM coches";
+        // Base de la query
+        let query = "SELECT * FROM coches WHERE 1=1";
         let params = [];
 
-        // Si viene marca filtramos
+        // Filtro por marca
         if(marca) {
-            query += " WHERE marca = ?";
-            params.push(marca);
+            query += " AND LOWER(marca) = LOWER(?)";
+            params.push(marca.trim());
+        }
+
+        // Filtro por oferta
+        if(oferta === "true"){
+            query += " AND oferta = 1";
         }
 
         // Siempre ordenamos por fecha
         query += " ORDER BY created_at DESC";
+
+        // DEBUG
+        console.log("QUERY: ", query);
+        console.log("PARAMS: ", params);
+        console.log("OFERTA recibida: ", oferta);
 
         const [rows] = await db.query(query, params);
 

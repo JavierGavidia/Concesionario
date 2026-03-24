@@ -35,7 +35,8 @@ function Price({ coche }) {
                 // Si no tenemos oferta
                 <>
                     <span className="normal-price">
-                        {(coche.precio).toLocaleString("es-Es", {style:"currency", currency:"EUR"})}
+                        {(coche.precio).toLocaleString("es-ES", {style:"currency", currency:"EUR"})}
+                        {/* {coche.precio} € */}
                     </span>
                 </>
             )}

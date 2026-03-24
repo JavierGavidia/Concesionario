@@ -3,10 +3,27 @@
 /**
  * Obtener todos los coches desde el backend con filtro opcional por marca
  */
-export const getCoches = async (marca="") => {
+export const getCoches = async (marca="", oferta = false) => {
 
     // Construimos la URL dinámicamente
-    const url = marca ? `http://localhost:3001/api/coches?marca=${marca}` : `http://localhost:3001/api/coches`;
+    let url = "http://localhost:3001/api/coches";
+
+    const params = [];
+
+    // Añadimos marca si existe
+    if(marca){
+        params.push(`marca=${marca}`);
+    }
+
+    // Añadimos oferta si está activada
+    if(oferta) {
+        params.push(`oferta=true`);
+    }
+
+    // Si hay Params los añadimos a la URL
+    if(params.length > 0){
+        url += `?${params.join("&")}`;
+    }
 
     console.log("🔍 URL que se está llamando:", url);
 
