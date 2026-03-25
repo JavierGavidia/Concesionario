@@ -5,19 +5,56 @@
 
 // HEADER
 .header {
-    background-color: v.$secondary-color;
+    background-color: v.$secondary;
     color: white;
     padding: v.$spacing;
     .container{
         @include m.container;
         @include m.flex-center;
         justify-content: space-between;
+        .btn-logo{
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            color: white;
+
+            .cont-img{
+                @include m.flex-center;
+                width: 180px;
+                height: 50px;
+                overflow: hidden;
+                img{
+                    width: 140%;
+                    height: auto;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            &::after {
+                @include m.after-before;
+
+                background: burlywood;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                mix-blend-mode: darken;
+            }
+
+            &:hover{
+                &::after{
+                    opacity: 1;
+                }
+            }
+        }
         .d-flex{
             a{
                 color: white;
                 text-decoration: none;
                 &:hover{
-                    color: gold;
+                    color: burlywood;
                 }
             }
         }
@@ -34,7 +71,7 @@
 // FOOTER
 .footer {
     flex: 0;
-    background-color: v.$secondary-color;
+    background-color: v.$secondary;
     color: white;
     text-align: center;
     padding: v.$spacing;

@@ -27,9 +27,9 @@ export const getCoches = async (req, res) => {
 
         // Orden precio
         if(clasificar === "precio_asc"){
-            query += " ORDER BY precio ASC";
+            query += " ORDER BY (precio * (1 - IFNULL(percent,0)/100)) ASC"; // Aplicamos el descuento para proprcionarlo al FRONT
         } else if (clasificar === "precio_desc"){
-            query += " ORDER BY precio DESC";
+            query += " ORDER BY (precio * (1 - IFNULL(percent,0)/100)) DESC"; // Aplicamos el descuento
         } else {
             query += " ORDER BY created_at DESC";
         }

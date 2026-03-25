@@ -34,7 +34,7 @@ function CocheCard({ coche }) {
             </div>
 
             {/* Botón de ejemplo */}
-            <button className="btn-custom" onClick={() => navigate(`/coches/${coche.id}`)}>
+            <button className="btn btn-primary" onClick={() => navigate(`/coches/${coche.id}`)}>
                 Ver detalles
             </button>
         </div>

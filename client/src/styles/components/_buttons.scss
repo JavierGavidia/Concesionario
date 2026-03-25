@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.btn-secondary-custom {
+    background-color: #1d2936;
+    color: #fff;
+}
+
+// Boton Volver
+.btn-back{
+    @include m.pos-absolute;
+}

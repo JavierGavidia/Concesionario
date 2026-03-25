@@ -1,14 +1,18 @@
 // Variables
-$primary-color: #2f65b5;
-$secondary-color: #1d2936;
-$text-color: #333;
+$primary: burlywood;
+$secondary: #1d2936;
+$body-color: $secondary;
+$btn-secondary-color: white;
+
+$text-color: $secondary;
+
 $bg-light: #f8f9fa;
 
 $font-primary: "Inter", sans-serif;
 $font-secondary: "Playfair Display", serif;
 
 $spacing: 1rem;
-$border-radius: 8px;
+$border-radius: 6px;
 
 // Spacing
 //$mp-sm: 

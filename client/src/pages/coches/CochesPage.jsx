@@ -42,16 +42,12 @@ function CochesPage() {
             <div className="cont-sup">
                 <div className="cont-txt">
                     <h1>Muestrario de coches</h1>
-                    <p>Total coches: {coches.length}</p> {/* DEBUG */}
+                    <p>Total coches mostrados: {coches.length}</p> {/* DEBUG */}
                 </div>
                 <div className="cont-search">
-
-                    <Filters />
-
-                    
+                    <Filters />  
                 </div>
             </div>
-            
 
             <div className="cars">
                 {coches.map((coche) => {

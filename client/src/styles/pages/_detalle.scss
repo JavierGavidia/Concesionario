@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as m;
+
 .coche-detalle {
     width: 100%;
     display: grid;
@@ -5,13 +7,17 @@
     gap: 40px;
     align-items: start;
 
-    margin-top: 30px;
+    margin: auto;
 }
 
 @media (max-width: 768px) {
     .coche-detalle {
         grid-template-columns: 1fr; // una sola columna
     }
+}
+
+.detalle-page{
+    @include m.flex-center;
 }
 
 .coche-detalle__img {
@@ -21,7 +27,7 @@
 
     .imagen-principal {
         width: 100%;
-        height: 350px;
+        height: 300px;
         position: relative;
         cursor: default;
         border-radius: 12px;
@@ -44,12 +50,6 @@
                 opacity: 1;
                 transform: scale(1);
             }
-        }
-
-        &:hover{
-            .estrella-icon{
-                animation: starFloat 2.5s ease-in-out infinite;
-            }   
         }
     }
 
@@ -93,7 +93,7 @@
             &.active{
                 cursor: initial;
                 pointer-events: none;
-                border: 2px solid gold;
+                border: 2px solid burlywood;
                 opacity: 0.7;
             }
         }
@@ -106,7 +106,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 
     h1 {
         font-size: 2rem;
@@ -116,7 +116,10 @@
     .detalle-extra{
         height: auto;
         p{
-            margin-bottom: .5rem;
+            margin: 0;
+            &:not(:last-child){
+                margin-bottom: .3rem;
+            }    
         }
     }
 

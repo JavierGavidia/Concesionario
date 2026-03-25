@@ -57,7 +57,7 @@ function CocheDetallePage() {
     const miniaturas = coche.imagenes;
 
     return (
-        <div className="container py-5">
+        <div className="container detalle-page">
             <div className="coche-detalle">
 
                 <div className="coche-detalle__img">
