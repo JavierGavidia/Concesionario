@@ -18,3 +18,19 @@
         padding: 1rem;
     }
 }
+
+.home-page{
+    background-image: url(../../public/images/genericas/portada.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 1;
+    .container{
+        color: white;
+        text-shadow: 5px 5px 8px rgba(#000, 1);
+        
+        h1{
+            font-size: 3rem;
+        }
+    }
+}

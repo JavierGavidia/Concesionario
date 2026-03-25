@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
     return (
-        <header className="header">
+        <header className="header border-bottom">
             <div className="container">
                 <h2 className="m-0">Concesionario</h2>
                 {/* Navegación */}

@@ -12,8 +12,10 @@ function Layout({ children }) {
             <Header />
 
             {/* Contenido dinámico de cada página */}
-            <main className="main-content container py-4">
-                {children}
+            <main className="main-content">
+                
+                    {children}
+
             </main>
 
             {/* Footer global */}

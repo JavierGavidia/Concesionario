@@ -1,21 +1,21 @@
 // Variables globales (solo para Bootstrap)
 @use "abstracts/variables" as *;
 
+// Importar Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
 // Mixins (no generan CSS)
-@use "abstracts/mixins";
+@import "abstracts/mixins";
 
 // Aimaciones globales
-@use "abstracts/animations";
+@import "abstracts/animations";
 
 // Código Modular
-@use "base/typography";
-@use "base/base";
-@use "layout/layout"; 
-@use "components/components";
-@use "components/price";
-@use "pages/home";
-@use "pages/coches";
-@use "pages/detalle";
-
-// Importar Bootstrap (Se pone al final ya que genera css)
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "base/typography";
+@import "base/base";
+@import "layout/layout"; 
+@import "components/components";
+@import "components/price";
+@import "pages/home";
+@import "pages/coches";
+@import "pages/detalle";

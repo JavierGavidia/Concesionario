@@ -43,7 +43,12 @@ export const getCoches = async (req, res) => {
         const [rows] = await db.query(query, params);
 
         // Parseamos imágenes. Transformar imágenes antes de enviar al frontend
-        const coches = rows.map(coche => ({...coche, imagenes: JSON.parse(coche.imagenes)}));
+        const coches = rows.map(coche => ({
+            ...coche,
+            oferta: Boolean(coche.oferta), // Mandamos el dato como boleano
+            precio: Number(coche.precio), // Pasamos el precio como valor numérico
+            imagenes: JSON.parse(coche.imagenes)
+        }));
         res.json(coches); // Devolvemos los datos como json
     } catch (error) {
         console.error("ERROR REAL:", error);

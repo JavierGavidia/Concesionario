@@ -36,7 +36,6 @@ function Price({ coche }) {
                 <>
                     <span className="normal-price">
                         {(coche.precio).toLocaleString("es-ES", {style:"currency", currency:"EUR"})}
-                        {/* {coche.precio} € */}
                     </span>
                 </>
             )}

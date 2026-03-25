@@ -12,21 +12,37 @@
         @include m.container;
         @include m.flex-center;
         justify-content: space-between;
+        .d-flex{
+            a{
+                color: white;
+                text-decoration: none;
+                &:hover{
+                    color: gold;
+                }
+            }
+        }
     }
 }
 
 // MAIN
 .main-content{
+    width: 100%;
+    display: flex;
     flex: 1;
 }
 
-
 // FOOTER
 .footer {
+    flex: 0;
     background-color: v.$secondary-color;
     color: white;
     text-align: center;
     padding: v.$spacing;
     margin-top: 2rem;
+}
+
+
+.header, .footer{
+    flex-shrink: 0; // No crecen
 }
 

@@ -38,11 +38,10 @@ function CochesPage() {
     }, [marca, oferta, clasificar]); // Se ejecuata cuanmdo cambia la marca o clicamos en oferta
 
     return (
-        <div>
+        <div className="container py-5">
             <div className="cont-sup">
                 <div className="cont-txt">
-                    <h1>Listado de coches</h1>
-                    <h2>Destacados:</h2>
+                    <h1>Muestrario de coches</h1>
                     <p>Total coches: {coches.length}</p> {/* DEBUG */}
                 </div>
                 <div className="cont-search">
