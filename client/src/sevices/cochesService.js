@@ -1,12 +1,15 @@
-// const API_URL = "http://localhost:3001/api/coches";
-
 /**
  * Obtener todos los coches desde el backend con filtro opcional por marca
  */
 export const getCoches = async (marca="", oferta = false, clasificar = "") => {
 
     // Construimos la URL dinámicamente
-    let url = "http://localhost:3001/api/coches";
+    // let url = "http://localhost:3001/api/coches";
+
+    // Usar la variable de entorno de Vite
+    const API_URL = import.meta.env.VITE_API_URL;  // <- esto apunta a Render en producción
+
+    let url = `${API_URL}/api/coches`;
 
     const params = [];
 
