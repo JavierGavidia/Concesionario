@@ -10,7 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors({
-    origin: 'https://concesionario-ruby.vercel.app',
+    origin: [
+        'http://localhost:5173', // desarrollo
+        'https://concesionario-ruby.vercel.app' // producción
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 
